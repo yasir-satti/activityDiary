@@ -24,14 +24,16 @@ Rate your frequent activities on how much you enjoy them and whether you achieve
 [Entiry Relationship Diagram](#ERD)
 
 [Application UI design](#appUI)
-   * Add
-   * Modify
-   * Display
-   * Delete
+   * [Add](appUIadd)
+   * [Modify](appUImodify)
+   * [Display](appUIdisplay)
+   * [Delete](appUIdelete)
 
 [Deployment](#Deploy)
 
 [Tests](#Tests)
+
+[Technology stack used](#TechStack)
 
 
 
@@ -112,7 +114,7 @@ So that I know what my updated activity list look like
 These are a list of actions or event steps typically defining the interactions between a role represented by an actor and a system to achieve a goal. The actor can be a human or other external system.
 
 For detailed content on the each use case refer to 
-* [Use cases](https://github.com/yasir-satti/activityDiary/docs/proj_use_cases.pdf)
+* [Use cases](https://github.com/yasir-satti/activityDiary/blob/master/docs/proj_use_cases.pdf)
 
 <a name="login"></a>
 ## 1. Login - UC001
@@ -131,7 +133,7 @@ This use case starts when the user decides to add an activity, then enter activi
 This use case starts when the user decides to update or change details of an activity, then it ends when the user selects to save the new changes.
 
 <a name="display"></a>
-## Dsiaply - UC005
+## Display - UC005
 This use case starts when the user decides to display the list of activities, then it ends when the user selects close.
 
 <a name="delete"></a>
@@ -155,21 +157,36 @@ We have 2 tables:
 <a name="appUI"></a>
 # Application UI design
 
+<a name="appUIadd"></a>
 ## Add
 
+<a name="appUImodify"></a>
 ## Modify
 
+<a name="appUIdisplay"></a>
 ## Display
 
+<a name="appUIdelete"></a>
 ## Delete
 
+<a name="tests"></a>
 # Tests
 
 <a name="deploy"></a>
 # Deployment
 
-<a name="tests"></a>
-# Tests
+<a name="techstack"></a>
+# Technology stack used
+
+Python
+Flask framework
+Linux VM on Google Cloud Platform (GCP)
+MySQL DB on Google Cloud Platform (GCP)
+Jenkins
+Github
+Linux
+Draw.io
+Wireframe draw
 
 
 
