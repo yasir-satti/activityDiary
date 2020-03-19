@@ -1,29 +1,47 @@
-# activityDiary
+# Activity Rating Diary
+
 Rate your frequent activities on how much you enjoy them and whether you achieved what you want from them
 
+## Contents
+[Scope](#scope)
+
+[Organizing things](#organize)
+   * [Requirements](#req)
+   * [Agile](#agile)
+
+[User Stories](#userS)
+   * [Must Have](#mustH)
+   * [Could Have](#couldH)
+
+
+<a name="scope"></a>
 # Scope
 
 I do many activities every day. I would like to evaluate how much I achieved in terms of objectives. Also I would like to evaluate my level of ‘joy’ I experienced while doing the activities. I should be able to record an activity and do a rating for achievement and one for joy. Then I can get an average for achievement and joy.
 
+<a name="organize"></a>
 # Organizing things
 
+<a name="req"></a>
 ## Requirements
 I used a trello board to capture the requiremments visually and set delivery contraints
 
-<p align="center">
-  <img alt="Requirements Board" src=images/trello_req.jpg">
-</p>
 
+![Requirements](/images/trello_req.jpg)
+
+<a name="agile"></a>
 ## Kanban board
 
 I used a trello board to demonstrate agile way of working. Kanban board showed my working pipeline and its progress
 
+![Agile](/images/trello_kanban.jpg)
 
-
+<a name="userS"></a>
 # User Stories
 
 These are short, simple descriptions of the features desired and capabilities of the system
 
+<a name="mustH"></a>
 ## Must have
 
 These are the minimum features that must be in the first working application
@@ -48,6 +66,7 @@ So that I know how I am performing
 I want to delete an activity when it is done
 So that I know what my updated activity list look like
 
+<a name="couldH"></a>
 ## Could have
 
 These features can be added at later application development sprints
