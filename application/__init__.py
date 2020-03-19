@@ -17,4 +17,4 @@ app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
 db = SQLAlchemy(app)
 
 # import the ./application/routes.py file
-# from application import routes
+from application import routes
