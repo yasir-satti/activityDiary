@@ -1,0 +1,16 @@
+<html>
+	<head>
+    		<title>{{ title }}</title>
+	</head>
+	<body>
+		<a href="{{ url_for('home') }}">Home</a><br>
+		<a href="{{ url_for('activitynew') }}">New Activity</a><br>
+		<a href="{{ url_for('activityadd') }}">Add Activity</a><br>
+		<a href="{{ url_for('activityshow') }}">Show Activity</a><br>
+		<a href="{{ url_for('activitymd') }}">Modify/Delete Activity</a><br>
+		<p> {{ title }} </p>
+		{% block body_content %}
+		{% endblock body_content %}
+	</body>
+</html>
+
