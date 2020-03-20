@@ -10,7 +10,7 @@ class Activities(db.Model):
     ObjRating = db.Column(db.Integer, nullable=False)
     JoyRating = db.Column(db.Integer, nullable=False)
 
-#class Users(db.Model):
+class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(30), nullable=False)
     last_name = db.Column(db.String(30), nullable=False)
