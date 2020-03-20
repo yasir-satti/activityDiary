@@ -1,7 +1,7 @@
 # import render_template function from the flask module
 from flask import render_template, redirect, url_for, request
 from application.models import Activities, Users
-from application.forms import AddForm, DisplayForm, ModifyForm
+from application.forms import AddUserForm, AddForm, DisplayForm, ModifyForm
 from application import app, db
 
 # define routes for / & /home, this function will be called when these are accessed
@@ -10,7 +10,24 @@ from application import app, db
 @app.route('/home')
 def home():
     return render_template('home.html', title='Home')
-    
+
+@app.route('/adduser', methods=['GET', 'POST'])
+def adduser():
+    form = AddUserForm()
+    if form.validate_on_submit():
+        addData = Users (
+            first_name=form.firstName.data,
+            last_name=form.lastName.data,
+            email=form.email.data,
+            )  
+        db.session.add(addData)
+        db.session.commit()        
+        return redirect(url_for('home'))    
+    else:
+        print(form.errors)    
+    return render_template('adduser.html', title='Add New User', form=form)
+
+
 @app.route('/activityadd', methods=['GET', 'POST'])
 def activityadd():
     form = AddForm()
