@@ -9,20 +9,19 @@ from application import app, db
 @app.route('/home')
 def home():
     return render_template('home.html', title='Home')
-
-@app.route('/activitynew')
-def activitynew(): 
-    return render_template('activitynew.html', title='Create New Activity')
-
-@app.route('/activityshow')
-def activityshow():
-    return render_template('activityshow.html', title='Show Activity')
-
+    
 @app.route('/activityadd')
 def activityadd():
-    return render_template('activityadd.html', title='Add Activity')
+    return render_template('activityadd.html', title='Add New Activity')
+
+@app.route('/activitydisplay')
+def activityshow():
+    return render_template('activitydisplay.html', title='Display Activity')
 
 @app.route('/activitymd')
 def activitymd():
-    return render_template('activitymd.html', title='Modify/Delete Activity')
+    return render_template('activitymd.html', title='Modify Activity')
     
+@app.route('/activitydelete')
+def activitynew(): 
+    return render_template('activitydelete.html', title='Delete Activity')
