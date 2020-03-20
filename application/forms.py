@@ -1,25 +1,36 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, BooleanField, IntegerField
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, IntegerField, DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange
 from application.models import Users
 from flask_login import current_user
 
 class AddForm(FlaskForm):
+    activityDate = DateField('Date',
+        format='%Y-%m-%d',
+        validators = [DataRequired('please select activity date'),
+        NumberRange(min=1, max=999)]
+    )
+    activityUser = IntegerField('User id',
+        validators = [
+            DataRequired('please enter your user id'),
+            NumberRange(min=1, max=999)
+        ]
+    )
     activityDesc = StringField('Activity Description',
         validators = [
-            DataRequired(),
+            DataRequired('please enter the activity description'),
             Length(min=5, max=500)
         ]
     )
     objRating = IntegerField('Objective rating',
         validators = [
-            DataRequired(),
+            DataRequired('please enter activity objective rating (1 to 10)'),
             NumberRange(min=1, max=10)
         ]
     )
     joyRating = IntegerField('Joy rating',
         validators = [
-            DataRequired(),
+            DataRequired('please enter activity joy rating (1 to 10)'),
             NumberRange(min=1, max=10)
         ]
     )
