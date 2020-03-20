@@ -8,7 +8,6 @@ class AddForm(FlaskForm):
     activityDate = DateField('Date',
        format='%d/%m/%Y')
        #validators = [DataRequired('please select activity date')]
-    )
     activityUser = IntegerField('User id',
         validators = [
             DataRequired('please enter your user id'),
