@@ -16,7 +16,7 @@ def activityadd():
     form = AddForm()
     if form.validate_on_submit():
         addData = Activities (
-            activitydate=form.activitydate.data,
+            activityDate=form.activitydate.data,
             activityUser=form.user_id.data,
             activityDesc=form.activityDesc.data,
             objRating=form.objRating.data,
