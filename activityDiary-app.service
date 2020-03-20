@@ -5,7 +5,7 @@ User=pythonadm
 WorkingDirectory=/opt/activityDiary
 ExecStart=/bin/bash -c 'cd /opt/activityDiary && \
 	. ./venv/bin/activate && \
-	flask run --host=0.0.0.0'
+	python3 app.py'
 Environment=SECRET_KEY={{SECRET_KEY}}
 Environment=DATABASE_URI=mysql+pymysql://{{MYSQL_USER}}:{{MYSQL_PASSWORD}}@{{MYSQL_HOST}}/{{MYSQL_DATABASE}}
 [Install]
