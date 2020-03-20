@@ -15,7 +15,7 @@ def activityadd():
     return render_template('activityadd.html', title='Add New Activity')
 
 @app.route('/activitydisplay')
-def activityshow():
+def activitydisplay():
     return render_template('activitydisplay.html', title='Display Activity')
 
 @app.route('/activitymd')
@@ -23,5 +23,5 @@ def activitymd():
     return render_template('activitymd.html', title='Modify Activity')
     
 @app.route('/activitydelete')
-def activitynew(): 
+def activitydelete(): 
     return render_template('activitydelete.html', title='Delete Activity')
