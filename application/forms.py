@@ -1,18 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, BooleanField, IntegerField, DateTimeField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange
-from wtforms_components import DateRange
 from application.models import Users
 from flask_login import current_user
 
 class AddForm(FlaskForm):
     activityDate = DateTimeField('Date', format='%d-%m-%Y',
-       validators = [DataRequired('please select activity date'),
-            DateRange(
-                min=datetime(2020, 1, 1),
-                max=datetime(2020, 3, 20)
-            )
-        ]
+       validators = [DataRequired('please select activity date')
+       ]
     )
     activityUser = IntegerField('User id',
         validators = [
