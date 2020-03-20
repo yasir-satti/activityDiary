@@ -1,7 +1,7 @@
 # import render_template function from the flask module
 from flask import render_template, redirect, url_for, request
 from application.models import Activities, Users
-from application.models import AddForm, DisplayForm, ModifyForm
+from application.forms import AddForm, DisplayForm, ModifyForm
 from application import app, db
 
 # define routes for / & /home, this function will be called when these are accessed
