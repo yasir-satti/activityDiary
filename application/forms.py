@@ -5,10 +5,10 @@ from application.models import Users
 from flask_login import current_user
 
 class AddForm(FlaskForm):
-    activityDate = DateField('Date',
-        format='%d/%m/%Y',
-        validators = [DataRequired('please select activity date')]
-    )
+    #activityDate = DateField('Date',
+     #   format='%d/%m/%Y',
+      #  validators = [DataRequired('please select activity date')]
+    #)
     activityUser = IntegerField('User id',
         validators = [
             DataRequired('please enter your user id'),
