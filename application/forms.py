@@ -6,9 +6,8 @@ from flask_login import current_user
 
 class AddForm(FlaskForm):
     activityDate = DateField('Date',
-        format='%Y-%m-%d',
-        validators = [DataRequired('please select activity date'),
-        NumberRange(min=1, max=999)]
+        format='%d/%m/%Y',
+        validators = [DataRequired('please select activity date')]
     )
     activityUser = IntegerField('User id',
         validators = [
