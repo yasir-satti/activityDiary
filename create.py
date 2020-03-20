@@ -1,12 +1,5 @@
 from application import db
-from application.models import Posts, Users
+from application.models import Activities, Users
 
 db.drop_all()
 db.create_all()
-
-
-
-# from application import db
-# from application.models import Activities, Users
-
-# db.create_all()
