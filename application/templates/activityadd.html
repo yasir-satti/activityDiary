@@ -1,5 +1,46 @@
 {% extends "layout.html" %}
 {% block body_content %}
-    <h1>Add Activity</h1>
-{% endblock body_content %}
+    <div class='form'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            <br>
+            {{ form.activityDesc.label }}
+            {{ form.activityDesc }}
 
+            <!-- if the form has any errors -->
+            {% if form.activityDesc.errors %}
+                <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
+                <div class="error">
+                    <!-- for each error in the errors for the title input field -->
+                    {% for error in form.activityDesc.errors %}
+                        <!-- display the error -->
+                        <span>{{ error }}</span>
+                    <!-- end the for-loop -->
+                    {% endfor %}
+                </div>
+            <!-- end the if statement -->
+            {% endif %}
+
+            <br>
+            {{ form.objRating.label }}
+            {{ form.objRating }}
+
+            <!-- if the form has any errors -->
+            {% if form.objRating.errors %}
+                <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
+                <div class="error">
+                    <!-- for each error in the errors for the content input field -->
+                    {% for error in form.objRating.errors %}
+                        <!-- display the error -->
+                        <span>{{ error }}</span>
+                    <!-- end the for-loop -->
+                    {% endfor %}
+                </div>
+            <!-- end the if statement -->
+            {% endif %}
+            
+            <br>
+            {{ form.submit }}
+        </form>
+    </div>
+{% endblock %}
