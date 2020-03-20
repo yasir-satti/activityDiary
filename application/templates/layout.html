@@ -3,12 +3,13 @@
     		<title>{{ title }}</title>
 	</head>
 	<body>
-		<a href="{{ url_for('home') }}">Home</a>
-		<a href="{{ url_for('adduser') }}">Add User</a>
-		<a href="{{ url_for('activityadd') }}">Add Activity</a>
-		<a href="{{ url_for('activitydisplay') }}">Display Activity</a>
-		<a href="{{ url_for('activitymd') }}">Modify Activity</a>
-		<a href="{{ url_for('activitydelete') }}">Delete Activity</a>
+		<a href="{{ url_for('home') }}">Home</a><br>
+		<a href="{{ url_for('adduser') }}">Add User</a><br>
+		<p>Activities Rating</p><br>
+		<a href="{{ url_for('activityadd') }}">Add</a>
+		<a href="{{ url_for('activitydisplay') }}">Display</a>
+		<a href="{{ url_for('activitymd') }}">Modify</a>
+		<a href="{{ url_for('activitydelete') }}">Delete</a>
 		<p> {{ title }} </p>
 		{% block body_content %}
 		{% endblock body_content %}
