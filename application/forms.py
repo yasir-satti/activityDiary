@@ -1,23 +1,29 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, BooleanField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, IntegerField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange
 from application.models import Users
 from flask_login import current_user
 
-class PostForm(FlaskForm):
-    title = StringField('Title',
+class AddForm(FlaskForm):
+    activityDesc = StringField('Activity Description',
         validators = [
             DataRequired(),
-            Length(min=2, max=100)
+            Length(min=5, max=500)
         ]
     )
-    content = StringField('Content',
+    objRating = IntegerField('Objective rating',
         validators = [
             DataRequired(),
-            Length(min=2, max=1000)
+            NumberRange(min=1, max=10)
         ]
     )
-    submit = SubmitField('Post!')
+    joyRating = IntegerField('Joy rating',
+        validators = [
+            DataRequired(),
+            NumberRange(min=1, max=10)
+        ]
+    )
+    submit = SubmitField('Add')
 
 class RegistrationForm(FlaskForm):
     first_name = StringField('First Name',
@@ -74,7 +80,7 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
     
-class UpdateAccountForm(FlaskForm):
+class DisplayForm(FlaskForm):
     first_name = StringField('First Name',
         validators=[
             DataRequired(),
@@ -91,6 +97,25 @@ class UpdateAccountForm(FlaskForm):
             Email()
         ])
     submit = SubmitField('Update')
+
+class ModifyForm(FlaskForm):
+    first_name = StringField('First Name',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    last_name = StringField('Last Name',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    email = StringField('Email',
+        validators=[
+            DataRequired(),
+            Email()
+        ])
+    submit = SubmitField('Update')
+
 
     def validate_email(self,email):
         if email.data != current_user.email:
