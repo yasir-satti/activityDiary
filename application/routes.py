@@ -17,10 +17,10 @@ def activityadd():
     if form.validate_on_submit():
         addData = Activities (
             activitydate=form.activityDate.data,
-            activityUser=form.activityUser.data,
+            user_id=form.activityUser.data,
             activityDesc=form.activityDesc.data,
-            objRating=form.objRating.data,
-            joyRating=form.joyRating.data
+            ObjRating=form.objRating.data,
+            JoyRating=form.joyRating.data
         )  
         db.session.add(addData)
         db.session.commit()        
