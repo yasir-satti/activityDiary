@@ -3,8 +3,7 @@ Description=Activity Diary Application
 [Service]
 User=pythonadm
 WorkingDirectory=/opt/activityDiary
-ExecStart=/bin/bash \
-	-c 'cd /opt/activityDiary && \
+ExecStart=/bin/bash -c 'cd /opt/activityDiary && \
 	. ./venv/bin/activate && \
 	flask run --host=0.0.0.0'
 Environment=SECRET_KEY={{SECRET_KEY}}
