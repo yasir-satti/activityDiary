@@ -52,8 +52,9 @@ def activitydisplay():
     displayData = Activities.query.filter_by(user_id=1).first()
     form = DisplayForm()
     if request.method == 'GET':
-        form.firstname.label = userData.first_name
-        form.lastname.label = userData.last_name        
+        form.firstName.label = userData.first_name
+        form.lastName.label = userData.last_name        
+        form.activityDate.label = displayData.activitydate
         form.activityDesc.label = displayData.activityDesc
         form.objRating.label = displayData.ObjRating
         form.joyRating.label = displayData.JoyRating     
