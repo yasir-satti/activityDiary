@@ -6,32 +6,13 @@ from application.models import Users
 from flask_login import current_user
 
 class AddUserForm(FlaskForm):
-    firstName = StringField('First Name',
-        validators = [
-            DataRequired(),
-            Length(min=5, max=30)
-        ]
-    )
-    lastName = StringField('Last Name',
-        validators = [
-            DataRequired(),
-            Length(min=5, max=30)
-        ]
-    )
-    email = StringField('Email',
-        validators = [
-            DataRequired(), Length(min=6, max=50),
-            Email()
-        ]
-    )
-    submit = SubmitField('Add')
-
-    def validate_email(self, email):
-        user = Users.query.filter_by(email=email.data).first()
-
-        if user:
-            raise ValidationError('Email already in use')
-
+    firstName = StringField()
+    lastName = StringField()
+    activityDate = DateTimeField()
+    activityDesc = StringField()
+    objRating = StringField()
+    joyRating = StringField()
+    
 class AddForm(FlaskForm):
     activityDate = DateTimeField('Date', format='%d-%m-%Y',
        validators = [DataRequired('please select activity date')
