@@ -6,12 +6,22 @@ from application.models import Users
 from flask_login import current_user
 
 class AddUserForm(FlaskForm):
-    firstName = StringField()
-    lastName = StringField()
-    activityDate = DateTimeField()
-    activityDesc = StringField()
-    objRating = StringField()
-    joyRating = StringField()
+    first_name = StringField('First Name',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    last_name = StringField('Last Name',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    email = StringField('Email',
+        validators=[
+            DataRequired(),
+            Email()
+        ])
+    submit = SubmitField('Update')
     
 class AddForm(FlaskForm):
     activityDate = DateTimeField('Date', format='%d-%m-%Y',
@@ -62,22 +72,12 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 class DisplayForm(FlaskForm):
-    first_name = StringField('First Name',
-        validators=[
-            DataRequired(),
-            Length(min=4, max=30)
-        ])
-    last_name = StringField('Last Name',
-        validators=[
-            DataRequired(),
-            Length(min=4, max=30)
-        ])
-    email = StringField('Email',
-        validators=[
-            DataRequired(),
-            Email()
-        ])
-    submit = SubmitField('Update')
+    firstName = StringField()
+    lastName = StringField()
+    activityDate = DateTimeField()
+    activityDesc = StringField()
+    objRating = StringField()
+    joyRating = StringField()
 
 # Declare your table for activities display
 class ItemTable(Table):
