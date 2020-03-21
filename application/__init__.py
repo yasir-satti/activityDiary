@@ -8,12 +8,10 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 from os import getenv
-# app.config['SECRET_KEY'] = getenv('SECRET_KEY')
-app.config['SECRET_KEY'] = '3409ri3049ir0934ir093i4r'
+app.config['SECRET_KEY'] = getenv('SECRET_KEY')
 
 # configer db connection
-# app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@35.242.185.100/activityDiary'
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
 
 # create db object
 db = SQLAlchemy(app)
