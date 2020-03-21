@@ -78,6 +78,7 @@ class DisplayForm(FlaskForm):
     activityDesc = StringField()
     objRating = StringField()
     joyRating = StringField()
+    submit = SubmitField('Ok')
 
 class ModifyForm(FlaskForm):
     activityDate = DateTimeField('Date', format='%d-%m-%Y',
