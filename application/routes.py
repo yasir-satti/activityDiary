@@ -48,19 +48,37 @@ def activityadd():
 
 @app.route('/activitydisplay', methods=['GET', 'POST'])
 def activitydisplay():
-    data = db.session.query(Users).join(Activities).filter(Activities.user_id == Users.id).all()
+    # data = db.session.query(Users).join(Activities).filter(Activities.user_id == Users.id).all()
+    userdata = db.session.query(Users).all()
+    activitydata = db.session.query(Activities).all()
     form = DisplayForm()
-    #if request.method == 'GET':
-    #    form.firstName.data = userData.first_name
-     #   form.lastName.data = userData.last_name        
-      #  form.activityDate.data = displayData.activitydate
-       # form.activityDesc.data = displayData.activityDesc
-        #form.objRating.data = displayData.ObjRating
-        #form.joyRating.data = displayData.JoyRating     
-    return render_template('activitydisplay.html', form=form, title='Display Activity', data=data)
+    return render_template('activitydisplay.html', form=form, title='Display Activity', userdata=userdata, activitydata=activitydata)
     
 @app.route('/activitymd')
 def activitymd():
+    form = ModifyForm()
+    if form.validate_on_submit():
+        modifyData = Activities (
+            activitydate=form.activityDate.data,
+            user_id=form.activityUser.data,
+            activityDesc=form.activityDesc.data,
+            ObjRating=form.objRating.data,
+            JoyRating=form.joyRating.data
+        )  
+        db.session.add(modifyData)
+        db.session.commit()        
+        return redirect(url_for('home'))
+    elif request.method == 'GET':
+        userId = db.session.query(Activities.user_id).distinct()
+        users = db.session.query(Users.first_name).filter_by(userId)
+        return render_template('activitymd.html', title='Modify Activity - Select user', form=form, users=users, userids=userId)
+
+    else:
+        print(form.errors)    
+        
+
+
+
     #form = ModifyForm()
     #if form.validate_on_submit():
     #    current_user.first_name = form.first_name.data

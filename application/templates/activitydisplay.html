@@ -5,7 +5,8 @@
         {{ form.hidden_tag() }}
         <br>
         <table>
-            <thead><tr><th>Name</th><th>Date</th><th>Activity Description</th><th>Objective Rating</th><th>Joy Rating</th></tr></thead>
+            <!--<thead><tr><th>Name</th><th>Date</th><th>Activity Description</th><th>Objective Rating</th><th>Joy Rating</th></tr></thead> -->
+            <thead><tr><th>Id</th><th>First name</th><th>Last name</th></tr></thead>
             <tbody>
                 <!-- if the form has any errors -->
                 <!-- {% if form.activityDate.errors %}  -->
@@ -20,9 +21,20 @@
                 <!-- </div> -->
                 <!-- end the if statement -->
                 <!-- {% endif %} -->
-                {% for item in data %}
-                    <tr><td>{{ item.first_name }}</div><td></td><td>{{ item.last_name }}</td><th>{{ item.activitydate }}</th><td>{{ item.activityDesc }}</td><td>{{ item.ObjRating }}</td><td>{{ item.JoyRating }}</td></tr>
-                {% endfor %} -->
+                {% for user in userdata %}
+                    <tr><td>{{ user.id }}</div><td></td><td>{{ user.first_name }}</div><td></td><td>{{ user.last_name }}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <table>
+            <!--<thead><tr><th>Name</th><th>Date</th><th>Activity Description</th><th>Objective Rating</th><th>Joy Rating</th></tr></thead> -->
+            <thead><tr><th>User ID</th><th>Activity date</th><td>Activity description }}</td><td>Objective Rating</td><td>Joy Rating</td></tr></thead>
+            <tbody>
+                {% for activity in activitydata %}
+                    <tr><th>activity.user_id</th><th>{{ activity.activitydate }}</th><td>{{ activity.activityDesc }}</td><td>{{ activity.ObjRating }}</td><td>{{ activity.JoyRating }}</td></tr></thead>
+                {% endfor %}
             </tbody>
         </table>
     </form>
