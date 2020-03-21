@@ -28,7 +28,6 @@ def adduser():
     return render_template('adduser.html', title='Add New User', form=form)
     # 789
 
-
 @app.route('/activityadd', methods=['GET', 'POST'])
 def activityadd():
     form = AddForm()
@@ -53,12 +52,12 @@ def activitydisplay():
     displayData = Activities.query.filter_by(user_id=1).first()
     form = DisplayForm()
     if request.method == 'GET':
-        form.firstName.label = userData.first_name
-        form.lastName.label = userData.last_name        
-        form.activityDate.label = displayData.activitydate
-        form.activityDesc.label = displayData.activityDesc
-        form.objRating.label = displayData.ObjRating
-        form.joyRating.label = displayData.JoyRating     
+        form.firstName.data = userData.first_name
+        form.lastName.data = userData.last_name        
+        form.activityDate.data = displayData.activitydate
+        form.activityDesc.data = displayData.activityDesc
+        form.objRating.data = displayData.ObjRating
+        form.joyRating.data = displayData.JoyRating     
     return render_template('activitydisplay.html', title='Display Activity', form=form)
     
 @app.route('/activitymd')
