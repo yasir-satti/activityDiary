@@ -48,12 +48,13 @@ def activityadd():
 
 @app.route('/activitydisplay', methods=['GET', 'POST'])
 def activitydisplay():
-    form = DisplayForm()
-    if request.method == 'GET':
-        form.first_name.data = current_user.first_name
-        form.last_name.data = current_user.last_name        
-        form.email.data = current_user.email        
-    return render_template('activitydisplay.html', title='Display Activity', form=form)
+    #form = DisplayForm()
+    #if request.method == 'GET':
+    #    form.first_name.data = current_user.first_name
+    #    form.last_name.data = current_user.last_name        
+    #    form.email.data = current_user.email        
+    #return render_template('activitydisplay.html', title='Display Activity', form=form)
+    return render_template('activitydisplay.html', title='Display Activity')
 
 @app.route('/activitymd')
 def activitymd():

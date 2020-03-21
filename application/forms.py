@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, BooleanField, IntegerField, DateTimeField
+from flask_table import Table, Col
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange
 from application.models import Users
 from flask_login import current_user
@@ -78,7 +79,7 @@ class LoginForm(FlaskForm):
 
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
-    
+
 class DisplayForm(FlaskForm):
     first_name = StringField('First Name',
         validators=[
@@ -96,6 +97,21 @@ class DisplayForm(FlaskForm):
             Email()
         ])
     submit = SubmitField('Update')
+
+# Declare your table for activities display
+class ItemTable(Table):
+    name = Col('Name')
+    description = Col('Description')
+
+# Get some objects for table
+class Item(object):
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
+
+items = [Item('Name1', 'Description1'),
+         Item('Name2', 'Description2'),
+         Item('Name3', 'Description3')]
 
 class ModifyForm(FlaskForm):
     first_name = StringField('First Name',
