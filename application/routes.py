@@ -48,8 +48,8 @@ def activityadd():
 
 @app.route('/activitydisplay', methods=['GET', 'POST'])
 def activitydisplay():
-    userData = Users.query.all()
-    activityData = Activities.query.all()
+    userData = Users.query.all().first()
+    activityData = Activities.query.all().first()
     form = DisplayForm()
     #if request.method == 'GET':
     #    form.firstName.data = userData.first_name
