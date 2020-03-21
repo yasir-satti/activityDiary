@@ -6,12 +6,12 @@ from application.models import Users
 from flask_login import current_user
 
 class AddUserForm(FlaskForm):
-    first_name = StringField('First Name',
+    firstName = StringField('First Name',
         validators=[
             DataRequired(),
             Length(min=4, max=30)
         ])
-    last_name = StringField('Last Name',
+    lastName = StringField('Last Name',
         validators=[
             DataRequired(),
             Length(min=4, max=30)
