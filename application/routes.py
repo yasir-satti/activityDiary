@@ -50,7 +50,7 @@ def activityadd():
 def activitydisplay():
     userData = Users.query.all()
     activityData = Activities.query.all()
-    ##form = DisplayForm()
+    form = DisplayForm()
     #if request.method == 'GET':
     #    form.firstName.data = userData.first_name
      #   form.lastName.data = userData.last_name        
@@ -58,7 +58,7 @@ def activitydisplay():
        # form.activityDesc.data = displayData.activityDesc
         #form.objRating.data = displayData.ObjRating
         #form.joyRating.data = displayData.JoyRating     
-    return render_template('activitydisplay.html', title='Display Activity', users=userData, activities=activityData)
+    return render_template('activitydisplay.html', form=form, title='Display Activity', users=userData, activities=activityData)
     
 @app.route('/activitymd')
 def activitymd():
