@@ -8,7 +8,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 from os import getenv
-app.config['SECRET_KEY'] = getenv('SECRET_KEY')
+# app.config['SECRET_KEY'] = getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = '3409ri3049ir0934ir093i4r'
 
 # configer db connection
 # app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')

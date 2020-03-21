@@ -21,7 +21,7 @@ class AddUserForm(FlaskForm):
             DataRequired(),
             Email()
         ])
-    submit = SubmitField('Update')
+    submit = SubmitField('Add')
     
 class AddForm(FlaskForm):
     activityDate = DateTimeField('Date', format='%d-%m-%Y',
