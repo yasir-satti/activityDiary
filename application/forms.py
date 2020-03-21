@@ -72,7 +72,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 class DisplayForm(FlaskForm):
-    firstName = StringField()
+    firstName = StringField('first name')
     lastName = StringField()
     activityDate = DateTimeField()
     activityDesc = StringField()
