@@ -49,16 +49,16 @@ def activityadd():
 @app.route('/activitydisplay', methods=['GET', 'POST'])
 def activitydisplay():
     userData = Users.query.all()
-    displayData = Activities.query.all()
-    form = DisplayForm()
-    if request.method == 'GET':
-        form.firstName.data = userData.first_name
-        form.lastName.data = userData.last_name        
-        form.activityDate.data = displayData.activitydate
-        form.activityDesc.data = displayData.activityDesc
-        form.objRating.data = displayData.ObjRating
-        form.joyRating.data = displayData.JoyRating     
-    return render_template('activitydisplay.html', title='Display Activity', form=form)
+    activityData = Activities.query.all()
+    ##form = DisplayForm()
+    #if request.method == 'GET':
+    #    form.firstName.data = userData.first_name
+     #   form.lastName.data = userData.last_name        
+      #  form.activityDate.data = displayData.activitydate
+       # form.activityDesc.data = displayData.activityDesc
+        #form.objRating.data = displayData.ObjRating
+        #form.joyRating.data = displayData.JoyRating     
+    return render_template('activitydisplay.html', title='Display Activity', users=userData, activities=activityData)
     
 @app.route('/activitymd')
 def activitymd():

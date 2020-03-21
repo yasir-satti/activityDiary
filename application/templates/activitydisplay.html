@@ -20,9 +20,9 @@
                 <!-- </div> -->
                 <!-- end the if statement -->
                 <!-- {% endif %} -->
-                {% for data in displayData %}
-                    <tr><td>{{ form.firstName.data }}</div><td></td><td>{{ form.lastName.label }}</td><th>{{ form.activitydate.label }}</th><td>{{ form.activityDesc.label }}</td><td>{{ form.ObjRating.label }}</td><td>{{ form.JoyRating.label }}</td></tr>
-                <!-- {% endfor %} -->
+                {% for user, activity in userData, activityData %}
+                    <tr><td>{{ user.first_name }}</div><td></td><td>{{ user.last_name }}</td><th>{{ activity.activitydate }}</th><td>{{ activity.activityDesc }}</td><td>{{ activity.ObjRating }}</td><td>{{ activity.JoyRating }}</td></tr>
+                {% endfor %} -->
             </tbody>
         </table>
     </form>
