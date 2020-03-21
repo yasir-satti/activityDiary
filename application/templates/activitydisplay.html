@@ -20,8 +20,8 @@
                 <!-- </div> -->
                 <!-- end the if statement -->
                 <!-- {% endif %} -->
-                {% for user, activity in userData, activityData %}
-                    <tr><td>{{ user.first_name }}</div><td></td><td>{{ user.last_name }}</td><th>{{ activity.activitydate }}</th><td>{{ activity.activityDesc }}</td><td>{{ activity.ObjRating }}</td><td>{{ activity.JoyRating }}</td></tr>
+                {% for item in data %}
+                    <tr><td>{{ item.first_name }}</div><td></td><td>{{ item.last_name }}</td><th>{{ item.activitydate }}</th><td>{{ item.activityDesc }}</td><td>{{ item.ObjRating }}</td><td>{{ item.JoyRating }}</td></tr>
                 {% endfor %} -->
             </tbody>
         </table>
