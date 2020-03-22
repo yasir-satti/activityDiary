@@ -1,7 +1,7 @@
 # import render_template function from the flask module
 from flask import render_template, redirect, url_for, request
 from application.models import Activities, Users
-from application.forms import AddUserForm, AddForm, DisplayForm, ModifyForm
+from application.forms import AddUserForm, AddForm, DisplayForm, ModifyForm, DeleteForm
 from application import app, db
 
 # define routes for / & /home, this function will be called when these are accessed
@@ -98,4 +98,11 @@ def activitymd():
 
 @app.route('/activitydelete')
 def activitydelete(): 
-    return render_template('activitydelete.html', title='Delete Activity')
+    # data = db.session.query(Users).join(Activities).filter(Activities.user_id == Users.id).all()
+    userdata = db.session.query(Users).all()
+    activitydata = db.session.query(Activities).all()
+    form = DeleteForm()
+    if form.validate_on_submit():
+        return redirect(url_for('home'))
+    else:
+        return render_template('activitydelete.html', form=form, title='Delete Activity', userdata=userdata, activitydata=activitydata)

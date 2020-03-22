@@ -1,15 +1,30 @@
 {% extends "layout.html" %}
 {% block body_content %}
-    <h1>Delete Activity</h1>
-    <br>
-    <br>
-    <table>
-        <thead><tr><th>Name</th><th>Date</th><th>Activity Description</th><th>Objective Rating</th><th>Joy Rating</th></tr></thead>
-        <tbody>
-        <tr><td>Name1</td><th>Date1</th><td>Description1</td><td>Orating1</td><td>Jrating1</td></tr>
-        <tr><td>Name2</td><th>Date2</th><td>Description2</td><td>Orating2</td><td>Jrating2</td></tr>
-        <tr><td>Name3</td><th>Date3</th><td>Description3</td><td>Orating3</td><td>Jrating3</td></tr>
-        </tbody>
-    </table>
+<div class='form'>
+    <form method='POST' action=''>
+        {{ form.hidden_tag() }}
+        <br>
+        <table>
+            <!--<thead><tr><th>Name</th><th>Date</th><th>Activity Description</th><th>Objective Rating</th><th>Joy Rating</th></tr></thead> -->
+            <thead><tr><th>Id</th><th>              First name</th><th>Last name</th></tr></thead>
+            <tbody>
+                {% for user in userdata %}
+                    <tr><td>{{ user.id }}</div><td></td><td>{{ user.first_name }}</div><td></td><td>{{ user.last_name }}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <table>
+            <!--<thead><tr><th>Name</th><th>Date</th><th>Activity Description</th><th>Objective Rating</th><th>Joy Rating</th></tr></thead> -->
+            <thead><tr><th>ID</th><th>User ID</th><th>     Activity date</th><td>          Activity description</td><td>       Objective Rating</td><td>Joy Rating</td></tr></thead>
+            <tbody>
+                {% for activity in activitydata %}
+                    <tr><th>{{ activity.id }}</th><th>{{ activity.user_id }}</th><th>{{ activity.activitydate }}</th><td>   {{ activity.activityDesc }}</td><td>      {{ activity.ObjRating }}</td><td>       {{ activity.JoyRating }}</td></tr></thead>
+                {% endfor %}
+            </tbody>
+        </table>
+        {{ form.submit }}
+    </form>
 {% endblock body_content %}
 

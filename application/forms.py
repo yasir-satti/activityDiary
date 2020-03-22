@@ -54,23 +54,6 @@ class AddForm(FlaskForm):
     )
     submit = SubmitField('Add')
 
-class LoginForm(FlaskForm):
-    email = StringField('Email',
-        validators=[
-            DataRequired(),
-            Email()
-        ]
-    )
-
-    password = PasswordField('Password',
-        validators=[
-            DataRequired()
-        ]
-    )
-
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Login')
-
 class DisplayForm(FlaskForm):
     firstName = StringField()
     lastName = StringField()
@@ -111,3 +94,11 @@ class ModifyForm(FlaskForm):
     )
     submit = SubmitField('Add')
     
+class DeleteForm(FlaskForm):
+    firstName = StringField()
+    lastName = StringField()
+    activityDate = DateTimeField()
+    activityDesc = StringField()
+    objRating = StringField()
+    joyRating = StringField()
+    submit = SubmitField('Delete')
