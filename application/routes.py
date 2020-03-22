@@ -55,7 +55,7 @@ def activitydisplay():
     else:
         return render_template('activitydisplay.html', form=form, title='Display Activity', userdata=userdata, activitydata=activitydata)
     
-@app.route('/activitymd')
+@app.route('/activitymd', methods=['GET', 'POST'])
 def activitymd():
     form = ModifyForm()
     if form.validate_on_submit():
