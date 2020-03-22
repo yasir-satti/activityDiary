@@ -60,8 +60,12 @@
             {% endif %}
             <br>
             <br>
-            {{ form.submit }}
-
+            <div class='form_group'>
+                {{ form.submit }}
+            </div>
+            <div class='form_group'>
+                <a href={{ url_for('home') }}> Cancel</a>
+            </div>
         </form>
     </div>
 {% endblock %}

@@ -94,11 +94,7 @@ def activitymd():
 
 @app.route('/activitydelete')
 def activitydelete(): 
-    # data = db.session.query(Users).join(Activities).filter(Activities.user_id == Users.id).all()
-    userdata = db.session.query(Users).all()
-    activitydata = db.session.query(Activities).all()
-    form = DeleteForm()
-    if form.validate_on_submit():
-        return redirect(url_for('home'))
-    else:
-        return render_template('activitydelete.html', form=form, title='Delete Activity', userdata=userdata, activitydata=activitydata)
+    activity = Activities.query.first()
+    db.session.delete(activity)
+    db.session.commit()
+    return redirect(url_for('home'))

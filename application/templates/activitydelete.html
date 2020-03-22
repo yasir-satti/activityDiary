@@ -4,27 +4,71 @@
     <form method='POST' action=''>
         {{ form.hidden_tag() }}
         <br>
-        <table>
-            <!--<thead><tr><th>Name</th><th>Date</th><th>Activity Description</th><th>Objective Rating</th><th>Joy Rating</th></tr></thead> -->
-            <thead><tr><th>Id</th><th>              First name</th><th>Last name</th></tr></thead>
-            <tbody>
-                {% for user in userdata %}
-                    <tr><td>{{ user.id }}</div><td></td><td>{{ user.first_name }}</div><td></td><td>{{ user.last_name }}</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <br>
+        {{ user }}
         <br>
         <br>
-        <table>
-            <!--<thead><tr><th>Name</th><th>Date</th><th>Activity Description</th><th>Objective Rating</th><th>Joy Rating</th></tr></thead> -->
-            <thead><tr><th>ID</th><th>User ID</th><th>     Activity date</th><td>          Activity description</td><td>       Objective Rating</td><td>Joy Rating</td></tr></thead>
-            <tbody>
-                {% for activity in activitydata %}
-                    <tr><th>{{ activity.id }}</th><th>{{ activity.user_id }}</th><th>{{ activity.activitydate }}</th><td>   {{ activity.activityDesc }}</td><td>      {{ activity.ObjRating }}</td><td>       {{ activity.JoyRating }}</td></tr></thead>
+        {{ form.activityDesc.label }}
+        {{ form.activityDesc }}
+
+        <!-- if the form has any errors -->
+        {% if form.activityDesc.errors %}
+            <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
+            <div class="error">
+                <!-- for each error in the errors for the title input field -->
+                {% for error in form.activityDesc.errors %}
+                    <!-- display the error -->
+                    <span>{{ error }}</span>
+                <!-- end the for-loop -->
                 {% endfor %}
-            </tbody>
-        </table>
-        {{ form.submit }}
+            </div>
+        <!-- end the if statement -->
+        {% endif %}
+        <br>
+        <br>
+        <br>
+        {{ form.objRating.label }}
+        {{ form.objRating }}
+
+        <!-- if the form has any errors -->
+        {% if form.objRating.errors %}
+            <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
+            <div class="error">
+                <!-- for each error in the errors for the content input field -->
+                {% for error in form.objRating.errors %}
+                    <!-- display the error -->
+                    <span>{{ error }}</span>
+                <!-- end the for-loop -->
+                {% endfor %}
+            </div>
+        <!-- end the if statement -->
+        {% endif %}
+        <br>
+        <br>          
+        <br>
+        {{ form.joyRating.label }}
+        {{ form.joyRating }}
+
+        <!-- if the form has any errors -->
+        {% if form.joyRating.errors %}
+            <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
+            <div class="error">
+                <!-- for each error in the errors for the content input field -->
+                {% for error in form.joyRating.errors %}
+                    <!-- display the error -->
+                    <span>{{ error }}</span>
+                <!-- end the for-loop -->
+                {% endfor %}
+            </div>
+        <!-- end the if statement -->
+        {% endif %}
+        <br>
+        <br>
+        <br>
+        <div class='form_group'>
+            {{ form.submit }}
+        </div>
     </form>
+</div>
 {% endblock body_content %}
 

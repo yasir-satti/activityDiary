@@ -89,10 +89,26 @@ class ModifyForm(FlaskForm):
     submit = SubmitField('Update')
     
 class DeleteForm(FlaskForm):
-    firstName = StringField()
-    lastName = StringField()
-    #activityDate = DateField()
-    activityDesc = StringField()
-    objRating = StringField()
-    joyRating = StringField()
+    #activityDate = DateField('Date', format='%d-%m-%Y',
+    #   validators = [DataRequired('please select activity date')
+    #   ]
+    #)
+    activityDesc = StringField('Activity Description',
+        validators = [
+            DataRequired('please enter the activity description'),
+            Length(min=5, max=500)
+        ]
+    )
+    objRating = IntegerField('Objective rating',
+        validators = [
+            DataRequired('please enter activity objective rating (1 to 10)'),
+            NumberRange(min=1, max=10)
+        ]
+    )
+    joyRating = IntegerField('Joy rating',
+        validators = [
+            DataRequired('please enter activity joy rating (1 to 10)'),
+            NumberRange(min=1, max=10)
+        ]
+    )
     submit = SubmitField('Delete')

@@ -68,6 +68,12 @@
         <div class='form_group'>
             {{ form.submit }}
         </div>
+        <div class='form_group'>
+            <a href={{ url_for('activitydelete') }}> Delete</a>
+        </div>
+        <div class='form_group'>
+            <a href={{ url_for('home') }}> Cancel</a>
+        </div>
     </form>
 </div>
 {% endblock body_content %}
