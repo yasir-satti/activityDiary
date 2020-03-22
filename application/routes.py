@@ -59,13 +59,10 @@ def activitydisplay():
 def activitymd():
     form = ModifyForm()
     if form.validate_on_submit():
-        modifyData = Activities (
-            # activityDate=form.activityDate.data,
-            activityDesc=form.activityDesc.data,
-            ObjRating=form.objRating.data,
-            JoyRating=form.joyRating.data
-        )  
-        # db.session.add(modifyData)
+        # Activities.activityDate=form.activityDate.data
+        Activities.activityDesc=form.activityDesc.data
+        Activities.ObjRating=form.objRating.data
+        Activities.JoyRating=form.joyRating.data  
         db.session.commit()        
         return redirect(url_for('home'))
     elif request.method == 'GET':
