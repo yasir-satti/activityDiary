@@ -7,11 +7,11 @@
             <table>
                 <thead>
                     <tr>
-                        <th>{{ form.firstName.label }}</th>
-                        <th>{{ form.firstName }}</th>
-                        {% if form.firstName.errors %}
+                        <th>{{ form.first_name.label }}</th>
+                        <th>{{ form.first_name }}</th>
+                        {% if form.first_name.errors %}
                             <div class="error">
-                                {% for error in form.firstName.errors %}
+                                {% for error in form.first_name.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
@@ -21,11 +21,11 @@
                     <br>
                     <br>
                     <tr>
-                        <th>{{ form.lastName.label }}</th>
-                        <th>{{ form.lastName }}</th>
-                        {% if form.lastName.errors %}
+                        <th>{{ form.last_name.label }}</th>
+                        <th>{{ form.last_name }}</th>
+                        {% if form.last_name.errors %}
                             <div class="error">
-                                {% for error in form.lastName.errors %}
+                                {% for error in form.last_name.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
