@@ -17,10 +17,12 @@
         <br>
         <table>
             <!--<thead><tr><th>Name</th><th>Date</th><th>Activity Description</th><th>Objective Rating</th><th>Joy Rating</th></tr></thead> -->
-            <thead><tr><th>ID</th><th>User ID</th><th>     Activity date</th><td>          Activity description</td><td>       Objective Rating</td><td>Joy Rating</td></tr></thead>
-            <tbody>
+            <!-- <thead><tr><th>ID</th><th>User ID</th><th>     Activity date</th><td>          Activity description</td><td>       Objective Rating</td><td>Joy Rating</td></tr></thead> -->
+            <thead><tr><th>ID</th><th>User ID</th><td>          Activity description</td><td>       Objective Rating</td><td>Joy Rating</td></tr></thead>
+                <tbody>
                 {% for activity in activitydata %}
-                    <tr><th>{{ activity.id }}</th><th>{{ activity.user_id }}</th><th>{{ activity.activitydate }}</th><td>   {{ activity.activityDesc }}</td><td>      {{ activity.ObjRating }}</td><td>       {{ activity.JoyRating }}</td></tr></thead>
+                    <!-- <tr><th>{{ activity.id }}</th><th>{{ activity.user_id }}</th><th>{{ activity.activitydate }}</th><td>   {{ activity.activityDesc }}</td><td>      {{ activity.ObjRating }}</td><td>       {{ activity.JoyRating }}</td></tr></thead> -->
+                    <tr><th>{{ activity.id }}</th><th>{{ activity.user_id }}</th><td>   {{ activity.activityDesc }}</td><td>      {{ activity.ObjRating }}</td><td>       {{ activity.JoyRating }}</td></tr></thead>
                 {% endfor %}
             </tbody>
         </table>
