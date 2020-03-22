@@ -57,14 +57,14 @@ class AddForm(FlaskForm):
 class DisplayForm(FlaskForm):
     firstName = StringField()
     lastName = StringField()
-    activityDate = DateTimeField()
+    activityDate = DateField()
     activityDesc = StringField()
     objRating = StringField()
     joyRating = StringField()
     submit = SubmitField('Ok')
 
 class ModifyForm(FlaskForm):
-    activityDate = DateTimeField('Date', format='%d-%m-%Y',
+    activityDate = DateField('Date', format='%d-%m-%Y',
        validators = [DataRequired('please select activity date')
        ]
     )
@@ -97,7 +97,7 @@ class ModifyForm(FlaskForm):
 class DeleteForm(FlaskForm):
     firstName = StringField()
     lastName = StringField()
-    activityDate = DateTimeField()
+    activityDate = DateField()
     activityDesc = StringField()
     objRating = StringField()
     joyRating = StringField()
