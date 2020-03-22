@@ -125,7 +125,7 @@ def activitydelete():
     #    form.last_name.data = current_user.last_name        
     #    form.email.data = current_user.email        
     #return render_template('activitydisplay.html', title='Modify Activity', form=form)
-    return render_template('activitydelete.html', title='Delete Activity')
+    return render_template('activitydelete.html', title='Delete Activity', form=form)
 
 @app.route('/activitydelete/button', methods=["GET", "POST"])
 def activitydeleteButton(): 
