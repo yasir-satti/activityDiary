@@ -70,7 +70,7 @@ def activitymd():
         return redirect(url_for('home'))
     elif request.method == 'GET':
         data = db.session.query(Activities).first()
-        userData = db.session.query(Users).(id==data.user_id)
+        userData = db.session.query(Users).filter_by(id==data.user_id)
         user = userData.first_name + " " + userData.last_name
         # form.activityUser.data=data.user_id,
         # form.activityDate.data=data.activityDate,
