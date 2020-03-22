@@ -48,12 +48,14 @@ def activityadd():
 
 @app.route('/activitydisplay', methods=['GET', 'POST'])
 def activitydisplay():
-    data = db.session.query(Users).join(Activities).filter(Activities.user_id == Users.id).all()
+    # data = db.session.query(Users).join(Activities).filter(Activities.user_id == Users.id).all()
+    userdata = db.session.query(Users).all()
+    activitydata = db.session.query(Activities).all()
     form = DisplayForm()
     if form.validate_on_submit():
         return redirect(url_for('home'))
     else:
-        return render_template('activitydisplay.html', form=form, title='Display Activity', data=data)
+        return render_template('activitydisplay.html', form=form, title='Display Activity', userdata=userdata, activitydata=activitydata)
     
 @app.route('/activitymd')
 def activitymd():
