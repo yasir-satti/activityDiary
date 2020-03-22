@@ -26,7 +26,6 @@ def adduser():
     else:
         print(form.errors)    
     return render_template('adduser.html', title='Add New User', form=form)
-    # 789
 
 @app.route('/activityadd', methods=['GET', 'POST'])
 def activityadd():
