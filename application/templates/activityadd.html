@@ -6,41 +6,48 @@
             <br>
             <br>
             <br>
-            {{ form.activityUser.label }}
-            {{ form.activityUser }}
-
-            <!-- if the form has any errors -->
-            {% if form.activityUser.errors %}
-                <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
-                <div class="error">
-                    <!-- for each error in the errors for the title input field -->
-                    {% for error in form.activityUser.errors %}
-                        <!-- display the error -->
-                        <span>{{ error }}</span>
-                    <!-- end the for-loop -->
-                    {% endfor %}
-                </div>
-            <!-- end the if statement -->
-            {% endif %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{ form.activityUser.label }}</th>
+                        <th>{{ form.activityUser }}</th>
+                        <!-- if the form has any errors -->
+                        {% if form.activityUser.errors %}
+                            <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
+                            <div class="error">
+                                <!-- for each error in the errors for the title input field -->
+                                {% for error in form.activityUser.errors %}
+                                    <!-- display the error -->
+                                    <span>{{ error }}</span>
+                                    <!-- end the for-loop -->
+                                {% endfor %}
+                            </div>
+                        <!-- end the if statement -->
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <th>{{ form.activityDesc.label }}</th>
+                        <th>{{ form.activityDesc }}</th>
+                        <!-- if the form has any errors -->
+                        {% if form.activityDesc.errors %}
+                            <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
+                            <div class="error">
+                                <!-- for each error in the errors for the title input field -->
+                                {% for error in form.activityDesc.errors %}
+                                    <!-- display the error -->
+                                    <span>{{ error }}</span>
+                                <!-- end the for-loop -->
+                                {% endfor %}
+                            </div>
+                        <!-- end the if statement -->
+                        {% endif %}
+                    </tr>
+                    </tr>
+                </thead>
+            </table>
             <br>
             <br>
             <br>
-            {{ form.activityDesc.label }}
-            {{ form.activityDesc }}
-
-            <!-- if the form has any errors -->
-            {% if form.activityDesc.errors %}
-                <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
-                <div class="error">
-                    <!-- for each error in the errors for the title input field -->
-                    {% for error in form.activityDesc.errors %}
-                        <!-- display the error -->
-                        <span>{{ error }}</span>
-                    <!-- end the for-loop -->
-                    {% endfor %}
-                </div>
-            <!-- end the if statement -->
-            {% endif %}
             <br>
             <br>
             <br>
