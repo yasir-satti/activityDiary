@@ -72,7 +72,7 @@ def activitymd():
         return redirect(url_for('home'))
     elif request.method == 'GET':
         data = db.session.query(Activities).first()
-        form.activityDate.data=data.activityDate,
+        form.activityDate.data=data.activitydate,
         form.activityDesc.data=data.activityDesc,
         form.objRating.data=data.ObjRating,
         form.objRating.data=data.JoyRating
