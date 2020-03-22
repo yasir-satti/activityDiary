@@ -65,9 +65,13 @@
         <br>
         <br>
         <br>
-        <div class='form_group'>
-            {{ form.submit }}
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th><div class='form_group'>{{ form.submit }}</div></th>
+                    <th><div class='form_group'><a href={{ url_for('home') }}> Cancel</a></div></th>
+                </tr>
+        </table>
     </form>
 </div>
 {% endblock body_content %}
