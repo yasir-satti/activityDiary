@@ -46,6 +46,6 @@ class Users(db.Model, UserMixin):
             return ''.join(['UserID: ', str(self.id), '\r\n',
             'Email: ', self.email])
 
-@login_manager.user_loader
-def load_user(id):
-    return Users.query.get(int(id))
+#@login_manager.user_loader
+#def load_user(id):
+#    return Users.query.get(int(id))
