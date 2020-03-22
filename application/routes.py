@@ -2,7 +2,7 @@
 from flask import render_template, redirect, url_for, request
 
 # import the app object from the ./application/__init__.py
-from application.models import Activities, Users
+from application.models import Activity, Activities, Users
 from application.forms import RegistrationForm, AddForm, DisplayForm, ModifyForm, DeleteForm, LoginForm
 from application import app, db, bcrypt
 
