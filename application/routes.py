@@ -57,9 +57,9 @@ def activitymd():
     form = ModifyForm()
     data = Activities.query.first()
     if form.validate_on_submit():
-        Activities.activityDesc=form.activityDesc.data
-        Activities.ObjRating=form.objRating.data
-        Activities.JoyRating=form.joyRating.data  
+        data.activityDesc=form.activityDesc.data
+        data.ObjRating=form.objRating.data
+        data.JoyRating=form.joyRating.data  
         db.session.commit()        
         return redirect(url_for('home'))
     elif request.method == 'GET':
