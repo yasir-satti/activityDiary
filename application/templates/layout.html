@@ -4,12 +4,18 @@
 	</head>
 	<body>
 		<a href="{{ url_for('home') }}">Home</a><br>
-		<a href="{{ url_for('adduser') }}">Add User</a><br>
+		<a href="{{ url_for('register') }}">Register</a><br>
+
 		<p>Activities Rating</p>
+
+		{% if current_user.is_authenticated %}
 		<a href="{{ url_for('activityadd') }}">Add</a>
 		<a href="{{ url_for('activitydisplay') }}">Display</a>
 		<a href="{{ url_for('activitymd') }}">Modify</a>
 		<a href="{{ url_for('activitydelete') }}">Delete</a>
+		<a href="{{ url_for('logout') }}">Logout Page</a><br>
+		{% endif %}		
+		
 		<p> {{ title }} </p>
 		{% block body_content %}
 		{% endblock body_content %}
