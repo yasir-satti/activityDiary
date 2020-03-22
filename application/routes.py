@@ -45,7 +45,7 @@ def activityadd():
 @app.route('/activitydisplay', methods=['GET', 'POST'])
 def activitydisplay():
     userdata = db.session.query(Users).all()
-    activitydata = db.session.query(Activities).first()
+    activitydata = db.session.query(Activities).all()
     form = DisplayForm()
     if form.validate_on_submit():
         return redirect(url_for('home'))
