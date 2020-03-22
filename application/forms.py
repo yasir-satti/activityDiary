@@ -24,10 +24,6 @@ class AddUserForm(FlaskForm):
     submit = SubmitField('Add')
     
 class AddForm(FlaskForm):
-    # activityDate = DateField('Date', format='%d-%m-%Y',
-    #   validators = [DataRequired('please select activity date')
-    #   ]
-    # )
     activityUser = IntegerField('User id',
         validators = [
             DataRequired('please enter your user id'),
@@ -57,17 +53,12 @@ class AddForm(FlaskForm):
 class DisplayForm(FlaskForm):
     firstName = StringField()
     lastName = StringField()
-    # activityDate = DateField()
     activityDesc = StringField()
     objRating = StringField()
     joyRating = StringField()
     submit = SubmitField('Ok')
 
 class ModifyForm(FlaskForm):
-    #activityDate = DateField('Date', format='%d-%m-%Y',
-    #   validators = [DataRequired('please select activity date')
-    #   ]
-    #)
     activityDesc = StringField('Activity Description',
         validators = [
             DataRequired('please enter the activity description'),
@@ -89,10 +80,6 @@ class ModifyForm(FlaskForm):
     submit = SubmitField('Update')
     
 class DeleteForm(FlaskForm):
-    #activityDate = DateField('Date', format='%d-%m-%Y',
-    #   validators = [DataRequired('please select activity date')
-    #   ]
-    #)
     activityDesc = StringField('Activity Description',
         validators = [
             DataRequired('please enter the activity description'),

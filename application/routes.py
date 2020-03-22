@@ -4,8 +4,6 @@ from application.models import Activities, Users
 from application.forms import AddUserForm, AddForm, DisplayForm, ModifyForm, DeleteForm
 from application import app, db
 
-# define routes for / & /home, this function will be called when these are accessed
-
 @app.route('/')
 @app.route('/home')
 def home():
@@ -46,7 +44,6 @@ def activityadd():
 
 @app.route('/activitydisplay', methods=['GET', 'POST'])
 def activitydisplay():
-    # data = db.session.query(Users).join(Activities).filter(Activities.user_id == Users.id).all()
     userdata = db.session.query(Users).all()
     activitydata = db.session.query(Activities).all()
     form = DisplayForm()
@@ -58,38 +55,21 @@ def activitydisplay():
 @app.route('/activitymd', methods=['GET', 'POST'])
 def activitymd():
     form = ModifyForm()
+    data = Activities.query.first()
     if form.validate_on_submit():
-        # Activities.activityDate=form.activityDate.data
         Activities.activityDesc=form.activityDesc.data
         Activities.ObjRating=form.objRating.data
         Activities.JoyRating=form.joyRating.data  
         db.session.commit()        
         return redirect(url_for('home'))
     elif request.method == 'GET':
-        data = Activities.query.first()
-        #userName = Users.query.filter_by(data.user_id)
-        #user = userName.first_name + " " + userName.last_name
         user = data.user_id
-        # form.activityUser.data=data.user_id,
-        # form.activityDate.data=data.activityDate,
         form.activityDesc.data=data.activityDesc,
         form.objRating.data=data.ObjRating,
         form.joyRating.data=data.JoyRating
         return render_template('activitymd.html', title='Modify Activity - Select user', form=form, user=user, data=data)
     else:
         print(form.errors)    
-    #form = ModifyForm()
-    #if form.validate_on_submit():
-    #    current_user.first_name = form.first_name.data
-    ##    current_user.last_name = form.last_name.data
-    #    current_user.email = form.email.data
-    #    db.session.commit()
-    #    return redirect(url_for('home'))
-    #elif request.method == 'GET':
-    #    form.first_name.data = current_user.first_name
-    #    form.last_name.data = current_user.last_name        
-    #    form.email.data = current_user.email        
-    #return render_template('activitydisplay.html', title='Modify Activity', form=form)
     return render_template('activitymd.html', title='Modify Activity')
 
 @app.route('/activitydelete', methods=['GET', 'POST'])
@@ -102,29 +82,13 @@ def activitydelete():
         return redirect(url_for('home'))
     elif request.method == 'GET':
         data = Activities.query.first()
-        #userName = Users.query.filter_by(data.user_id)
-        #user = userName.first_name + " " + userName.last_name
         user = data.user_id
-        # form.activityUser.data=data.user_id,
-        # form.activityDate.data=data.activityDate,
         form.activityDesc.data=data.activityDesc,
         form.objRating.data=data.ObjRating,
         form.joyRating.data=data.JoyRating
         return render_template('activitydelete.html', title='Delete Activity', form=form, user=user, data=data)
     else:
         print(form.errors)    
-    #form = ModifyForm()
-    #if form.validate_on_submit():
-    #    current_user.first_name = form.first_name.data
-    ##    current_user.last_name = form.last_name.data
-    #    current_user.email = form.email.data
-    #    db.session.commit()
-    #    return redirect(url_for('home'))
-    #elif request.method == 'GET':
-    #    form.first_name.data = current_user.first_name
-    #    form.last_name.data = current_user.last_name        
-    #    form.email.data = current_user.email        
-    #return render_template('activitydisplay.html', title='Modify Activity', form=form)
     return render_template('activitydelete.html', title='Delete Activity', form=form)
 
 @app.route('/activitydelete/button', methods=["GET", "POST"])
