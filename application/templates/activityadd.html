@@ -69,7 +69,7 @@
                         <th>{{ form.joyRating.label }}</th>
                         <th>{{ form.joyRating }}</th>
                         <!-- if the form has any errors -->
-                        {%{% if form.joyRating.errors %}
+                        {% if form.joyRating.errors %}
                             <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
                             <div class="error">
                                 <!-- for each error in the errors for the title input field -->
