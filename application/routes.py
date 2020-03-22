@@ -55,7 +55,7 @@ def activitydisplay():
 @app.route('/activitymd', methods=['GET', 'POST'])
 def activitymd():
     form = ModifyForm()
-    data = Activities.query.first()
+    data = db.session.query(Activities).first()
     if form.validate_on_submit():
         data.activityDesc=form.activityDesc.data
         data.ObjRating=form.objRating.data
