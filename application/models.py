@@ -1,4 +1,5 @@
 from application import db
+from flask_login import UserMixin
 from datetime import datetime
 
 class Activity(db.Model):
@@ -27,7 +28,7 @@ class Activities(db.Model):
         'User ID: ', self.user_id, '\r\n',
         'Activity ID: ', self.id, '\r\n'])
 
-class Users(db.Model):
+class Users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(30), nullable=False)
     last_name = db.Column(db.String(30), nullable=False)
