@@ -33,7 +33,7 @@ def activityadd():
     form = AddForm()
     if form.validate_on_submit():
         addData = Activities (
-            activitydate=form.activityDate.data,
+            activityDate=form.activityDate.data,
             user_id=form.activityUser.data,
             activityDesc=form.activityDesc.data,
             ObjRating=form.objRating.data,
@@ -62,7 +62,7 @@ def activitymd():
     form = ModifyForm()
     if form.validate_on_submit():
         modifyData = Activities (
-            activitydate=form.activityDate.data,
+            activityDate=form.activityDate.data,
             activityDesc=form.activityDesc.data,
             ObjRating=form.objRating.data,
             JoyRating=form.joyRating.data
@@ -73,7 +73,7 @@ def activitymd():
     elif request.method == 'GET':
         data = db.session.query(Activities).first()
         form.activityUser.data=data.user_id,
-        form.activityDate.data=data.activitydate,
+        form.activityDate.data=data.activityDate,
         form.activityDesc.data=data.activityDesc,
         form.objRating.data=data.ObjRating,
         form.objRating.data=data.JoyRating
