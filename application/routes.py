@@ -77,7 +77,7 @@ def activitymd():
         # form.activityDate.data=data.activityDate,
         form.activityDesc.data=data.activityDesc,
         form.objRating.data=data.ObjRating,
-        form.objRating.data=data.JoyRating
+        form.joyRating.data=data.JoyRating
         return render_template('activitymd.html', title='Modify Activity - Select user', form=form, user=user, data=data)
     else:
         print(form.errors)    
