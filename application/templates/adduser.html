@@ -4,60 +4,65 @@
         <form method='POST' action=''>
             {{ form.hidden_tag() }}
             <br>
-            {{ form.firstName.label }}
-            {{ form.firstName }}
-
-            <!-- if the form has any errors -->
-            {% if form.firstName.errors %}
-                <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
-                <div class="error">
-                    <!-- for each error in the errors for the title input field -->
-                    {% for error in form.firstName.errors %}
-                        <!-- display the error -->
-                        <span>{{ error }}</span>
-                    <!-- end the for-loop -->
-                    {% endfor %}
-                </div>
-            <!-- end the if statement -->
-            {% endif %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{ form.firstName.label }}</th>
+                        <th>{{ form.firstName }}</th>
+                        <!-- if the form has any errors -->
+                        {% if form.firstName.errors %}
+                            <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
+                            <div class="error">
+                                <!-- for each error in the errors for the title input field -->
+                                {% for error in form.firstName.errors %}
+                                    <!-- display the error -->
+                                    <span>{{ error }}</span>
+                                    <!-- end the for-loop -->
+                                {% endfor %}
+                            </div>
+                        <!-- end the if statement -->
+                        {% endif %}
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+                        <th>{{ form.lastName.label }}</th>
+                        <th>{{ form.lastName }}</th>
+                        <!-- if the form has any errors -->
+                        {% if form.lastName.errors %}
+                            <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
+                            <div class="error">
+                                <!-- for each error in the errors for the title input field -->
+                                {% for error in form.lastName.errors %}
+                                    <!-- display the error -->
+                                    <span>{{ error }}</span>
+                                    <!-- end the for-loop -->
+                                {% endfor %}
+                            </div>
+                        <!-- end the if statement -->
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <th>{{ form.email.label }}</th>
+                        <th>{{ form.email }}</th>
+                        <!-- if the form has any errors -->
+                        {% if form.email.errors %}
+                            <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
+                            <div class="error">
+                                <!-- for each error in the errors for the title input field -->
+                                {%{% for error in form.email.errors %}
+                                    <!-- display the error -->
+                                    <span>{{ error }}</span>
+                                    <!-- end the for-loop -->
+                                {% endfor %}
+                            </div>
+                        <!-- end the if statement -->
+                        {% endif %}
+                    </tr>
+                </thead>
+            </table>
             <br>
             <br>
-            <br>
-            {{ form.lastName.label }}
-            {{ form.lastName }}
-
-            <!-- if the form has any errors -->
-            {% if form.lastName.errors %}
-                <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
-                <div class="error">
-                    <!-- for each error in the errors for the title input field -->
-                    {% for error in form.lastName.errors %}
-                        <!-- display the error -->
-                        <span>{{ error }}</span>
-                    <!-- end the for-loop -->
-                    {% endfor %}
-                </div>
-            <!-- end the if statement -->
-            {% endif %}
-            <br>
-            <br>
-            <br>
-            {{ form.email.label }}
-            {{ form.email }}
-
-            <!-- if the form has any errors -->
-            {% if form.email.errors %}
-                <!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
-                <div class="error">
-                    <!-- for each error in the errors for the title input field -->
-                    {% for error in form.email.errors %}
-                        <!-- display the error -->
-                        <span>{{ error }}</span>
-                    <!-- end the for-loop -->
-                    {% endfor %}
-                </div>
-            <!-- end the if statement -->
-            {% endif %}
             <br>
             <br>
             <table>
