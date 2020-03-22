@@ -67,9 +67,9 @@ def activitymd():
         return redirect(url_for('home'))
     elif request.method == 'GET':
         data = Activities.query.first()
-        userName = Users.query.filter_by(data.user_id)
-        user = userName.first_name + " " + userName.last_name
-        # user = data.user_id
+        #userName = Users.query.filter_by(data.user_id)
+        #user = userName.first_name + " " + userName.last_name
+        user = data.user_id
         # form.activityUser.data=data.user_id,
         # form.activityDate.data=data.activityDate,
         form.activityDesc.data=data.activityDesc,
