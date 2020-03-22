@@ -55,7 +55,7 @@ def activitydisplay():
 @app.route('/activitymd', methods=['GET', 'POST'])
 def activitymd():
     form = ModifyForm()
-    data = db.session.query(Activities).all()
+    data = db.session.query(Activities).first()
     if form.validate_on_submit():
         data.activityDesc=form.activityDesc.data
         data.ObjRating=form.objRating.data
@@ -63,7 +63,7 @@ def activitymd():
         db.session.commit()        
         return redirect(url_for('home'))
     elif request.method == 'GET':
-        user = data.Activities.user_id
+        user = data.user_id
         form.activityDesc.data=data.activityDesc
         form.objRating.data=data.ObjRating
         form.objRating.data=data.ObjRating
