@@ -63,7 +63,7 @@ def activitymd():
         db.session.commit()        
         return redirect(url_for('home'))
     elif request.method == 'GET':
-        user = data.user_id
+        user = data.Activities.user_id
         form.activityDesc.data=data.activityDesc
         form.objRating.data=data.ObjRating
         form.objRating.data=data.ObjRating
