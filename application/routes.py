@@ -65,7 +65,7 @@ def activitymd():
             ObjRating=form.objRating.data,
             JoyRating=form.joyRating.data
         )  
-        db.session.add(modifyData)
+        # db.session.add(modifyData)
         db.session.commit()        
         return redirect(url_for('home'))
     elif request.method == 'GET':
