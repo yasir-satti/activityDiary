@@ -68,12 +68,6 @@ class ModifyForm(FlaskForm):
     #   validators = [DataRequired('please select activity date')
     #   ]
     #)
-    activityUser = IntegerField('User id',
-        validators = [
-            DataRequired('please enter your user id'),
-            NumberRange(min=1, max=999)
-        ]
-    )
     activityDesc = StringField('Activity Description',
         validators = [
             DataRequired('please enter the activity description'),

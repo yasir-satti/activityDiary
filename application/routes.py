@@ -70,18 +70,16 @@ def activitymd():
         return redirect(url_for('home'))
     elif request.method == 'GET':
         data = db.session.query(Activities).first()
-        form.activityUser.data=data.user_id,
+        userData = db.session.query(Users).(id==data.user_id)
+        user = userData.first_name + " " + userData.last_name
+        # form.activityUser.data=data.user_id,
         # form.activityDate.data=data.activityDate,
         form.activityDesc.data=data.activityDesc,
         form.objRating.data=data.ObjRating,
         form.objRating.data=data.JoyRating
-        return render_template('activitymd.html', title='Modify Activity - Select user', form=form, data=data)
+        return render_template('activitymd.html', title='Modify Activity - Select user', form=form, user=user, data=data)
     else:
         print(form.errors)    
-        
-
-
-
     #form = ModifyForm()
     #if form.validate_on_submit():
     #    current_user.first_name = form.first_name.data
