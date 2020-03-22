@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, BooleanField, IntegerField, DateTimeField
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, IntegerField, DateField
 from flask_table import Table, Col
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange
 from application.models import Users
@@ -24,7 +24,7 @@ class AddUserForm(FlaskForm):
     submit = SubmitField('Add')
     
 class AddForm(FlaskForm):
-    activityDate = DateTimeField('Date', format='%d-%m-%Y',
+    activityDate = DateField('Date', format='%d-%m-%Y',
        validators = [DataRequired('please select activity date')
        ]
     )
