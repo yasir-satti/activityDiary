@@ -96,11 +96,9 @@ def activitymd():
 def activitydelete():
     form = DeleteForm()
     if form.validate_on_submit():
-        # Activities.activityDate=form.activityDate.data
-        Activities.activityDesc=form.activityDesc.data
-        Activities.ObjRating=form.objRating.data
-        Activities.JoyRating=form.joyRating.data  
-        db.session.commit()        
+        data = Activities.query.first()
+        db.session.delete(data)
+        db.session.commit()
         return redirect(url_for('home'))
     elif request.method == 'GET':
         data = Activities.query.first()
