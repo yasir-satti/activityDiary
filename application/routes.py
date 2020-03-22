@@ -33,12 +33,11 @@ def activityadd():
     form = AddForm()
     if form.validate_on_submit():
         addData = Activities (
-            # activityDate=form.activityDate.data,
             user_id=form.activityUser.data,
             activityDesc=form.activityDesc.data,
             ObjRating=form.objRating.data,
             JoyRating=form.joyRating.data
-        )  
+            )  
         db.session.add(addData)
         db.session.commit()        
         return redirect(url_for('home'))    
