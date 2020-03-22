@@ -68,7 +68,7 @@ class ModifyForm(FlaskForm):
        validators = [DataRequired('please select activity date')
        ]
     )
-    activityUser = IntegerField('',
+    activityUser = IntegerField('User id',
         validators = [
             DataRequired('please enter your user id'),
             NumberRange(min=1, max=999)
@@ -92,7 +92,7 @@ class ModifyForm(FlaskForm):
             NumberRange(min=1, max=10)
         ]
     )
-    submit = SubmitField('Add')
+    submit = SubmitField('Update')
     
 class DeleteForm(FlaskForm):
     firstName = StringField()

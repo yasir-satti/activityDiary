@@ -63,7 +63,6 @@ def activitymd():
     if form.validate_on_submit():
         modifyData = Activities (
             activitydate=form.activityDate.data,
-            user_id=form.activityUser.data,
             activityDesc=form.activityDesc.data,
             ObjRating=form.objRating.data,
             JoyRating=form.joyRating.data
@@ -72,10 +71,12 @@ def activitymd():
         db.session.commit()        
         return redirect(url_for('home'))
     elif request.method == 'GET':
-        userId = db.session.query(Activities.user_id).distinct()
-        users = db.session.query(Users.first_name).filter_by(userId)
-        return render_template('activitymd.html', title='Modify Activity - Select user', form=form, users=users, userids=userId)
-
+        data = db.session.query(Activities).first()
+        form.activityDate.data=data.activityDate,
+        form.activityDesc.data=data.activityDesc,
+        form.objRating.data=data.ObjRating,
+        form.objRating.data=data.JoyRating
+        return render_template('activitymd.html', title='Modify Activity - Select user', form=form, data=data)
     else:
         print(form.errors)    
         
