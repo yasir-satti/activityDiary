@@ -6,6 +6,17 @@
             <table>
                 <thead>
                     <tr>
+                        <th>{{ form.activityDate.label }}</th>
+                        <th>{{ form.activityDate }}</th>
+                        {% if form.activityDate.errors %}
+                            <div class="error">
+                                {% for error in form.activityDate.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </tr>
+                    <tr>
                         <th>{{ form.activityDesc.label }}</th>
                         <th>{{ form.activityDesc }}</th>
                         {% if form.activityDesc.errors %}

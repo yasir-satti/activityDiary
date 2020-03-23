@@ -53,13 +53,19 @@ def register():
 def activityadd():
     form = AddForm()
     if form.validate_on_submit():
-        addData = Activities (
-            user_id=form.activityUser.data,
-            activityDesc=form.activityDesc.data,
+        activityData = Activity (
+            activityDesc=form.activityDesc
+        )
+
+        activitiesData = Activities (
+            activityDate=form.activityDate.data,
+            user_id=current_user.id,
             ObjRating=form.objRating.data,
             JoyRating=form.joyRating.data
-            )  
-        db.session.add(addData)
+        )  
+        
+        activityData.tracker_data.append(activitiesData)
+        db.session.add(activityData)
         db.session.commit()        
         return redirect(url_for('home'))    
     else:

@@ -6,6 +6,12 @@ from application.models import Users
 from flask_login import current_user
    
 class AddForm(FlaskForm):
+    activityDate = StringField('Date',
+        validators = [
+            DataRequired('please enter the activity description'),
+            format('%d%m%y')
+        ]
+    )
     activityDesc = StringField('Activity Description',
         validators = [
             DataRequired('please enter the activity description'),
