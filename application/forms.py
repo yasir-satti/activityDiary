@@ -13,7 +13,7 @@ class AddForm(FlaskForm):
     
     activityDesc = StringField('Activity Description',
         validators = [DataRequired('Activity description legth 5 to 500 characters inclusive, try again'),
-        Length(min=5, max=500)]
+        Length(min=5, max=200)]
     )
 
     objRating = IntegerField('Objective rating',
