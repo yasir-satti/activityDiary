@@ -56,16 +56,16 @@ def activityadd():
         activityData = Activity (
             activityDesc=form.activityDesc
         )
+        db.session.add(activityData)
+        db.session.commit()
 
         activitiesData = Activities (
             activityDate=form.activityDate.data,
-            user_id=current_user.id,
+            activity_ref=current_user,
             ObjRating=form.objRating.data,
             JoyRating=form.joyRating.data
         )  
-        
-        activityData.tracker_data.append(activitiesData)
-        db.session.add(activityData)
+        db.session.add(activitiesData)
         db.session.commit()        
         return redirect(url_for('home'))    
     else:
