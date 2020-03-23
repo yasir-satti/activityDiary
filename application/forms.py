@@ -8,25 +8,25 @@ from flask_login import current_user
 class AddForm(FlaskForm):
     activityDate = DateField('Date',
         validators = [
-            DataRequired('please enter the activity description'),
-            format('%d%m%y')
+            DataRequired('Date format must be MM-DD-YYYY, try again'),
+            format('%d-%m-%y')
         ]
     )
     activityDesc = StringField('Activity Description',
         validators = [
-            DataRequired('please enter the activity description'),
+            DataRequired('Activity description legth 5 to 500 characters inclusive, try again'),
             Length(min=5, max=500)
         ]
     )
     objRating = IntegerField('Objective rating',
         validators = [
-            DataRequired('please enter activity objective rating (1 to 10)'),
+            DataRequired('Activity objective rating must be between 1 and  10 inclusive'),
             NumberRange(min=1, max=10)
         ]
     )
     joyRating = IntegerField('Joy rating',
         validators = [
-            DataRequired('please enter activity joy rating (1 to 10)'),
+            DataRequired('Activity Joy  rating must be between 1 and  10 inclusive'),
             NumberRange(min=1, max=10)
         ]
     )
