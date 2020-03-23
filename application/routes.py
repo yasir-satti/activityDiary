@@ -61,7 +61,7 @@ def activityadd():
 
         activitiesData = Activities(
             # activityDate=form.activityDate.data,
-            activity_ref=current_user.id,
+            activity_ref=1,
             ObjRating=form.objRating.data,
             JoyRating=form.joyRating.data
         )  
