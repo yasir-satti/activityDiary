@@ -17,7 +17,7 @@ class Activity(db.Model):
 class Activities(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # activityDate = db.Column(db.Date, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     activity_id = db.Column(db.Integer, db.ForeignKey('activity.id'), nullable=False)
     ObjRating = db.Column(db.Integer, nullable=False)
     JoyRating = db.Column(db.Integer, nullable=False)
