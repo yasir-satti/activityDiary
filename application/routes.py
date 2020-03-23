@@ -61,6 +61,7 @@ def activityadd():
         act = Activity.query.filter_by(activityDesc=form.activityDesc.data).all()
         activRef = act[-1].id
         
+        print(current_user)
         activitiesData = Activities(
             activity_ref=activRef,
             user_ref=current_user.id,
