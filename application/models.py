@@ -5,7 +5,7 @@ from datetime import datetime
 class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     activityDesc = db.Column(db.String(500), nullable=False, unique=True)
-    activities = db.relationship('Activity', backref='activity_ref', lazy=True)
+    activities = db.relationship('Activities', backref='activity_ref', lazy=True)
 
     # print result of the operation, helps to see if something gone wrong
     def __repr__(self):
