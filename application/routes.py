@@ -54,7 +54,7 @@ def activityadd():
     form = AddForm()
     if form.validate_on_submit():
         activityData = Activity (
-            activityDesc=form.activityDesc
+            activityDesc=form.activityDesc.data
         )
         db.session.add(activityData)
         db.session.commit()
