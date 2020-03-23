@@ -53,15 +53,15 @@ def register():
 def activityadd():
     form = AddForm()
     if form.validate_on_submit():
-        activityData = Activity (
+        activityData = Activity(
             activityDesc=form.activityDesc.data
         )
         db.session.add(activityData)
         db.session.commit()
 
-        activitiesData = Activities (
+        activitiesData = Activities(
             # activityDate=form.activityDate.data,
-            activity_ref=current_user,
+            activity_ref=current_user.id,
             ObjRating=form.objRating.data,
             JoyRating=form.joyRating.data
         )  
