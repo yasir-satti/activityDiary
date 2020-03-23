@@ -16,7 +16,7 @@ class Activity(db.Model):
 #create columns in table
 class Activities(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    activityDate = db.Column(db.Date, nullable=False)
+    # activityDate = db.Column(db.Date, nullable=False)
     user_id = db.Column(db.Integer, nullable=False)
     activity_id = db.Column(db.Integer, db.ForeignKey('activity.id'), nullable=False)
     ObjRating = db.Column(db.Integer, nullable=False)
