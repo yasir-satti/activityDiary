@@ -60,10 +60,9 @@ def activityadd():
         db.session.commit()
 
         activitiesData = Activities(
-            # activityDate=form.activityDate.data,
             activity_ref=current_user,
-            ObjRating=form.objRating.data,
-            JoyRating=form.joyRating.data
+            JoyRating=form.joyRating.data,
+            ObjRating=form.objRating.data
         )  
         db.session.add(activitiesData)
         db.session.commit()        
