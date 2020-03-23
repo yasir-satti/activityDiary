@@ -60,8 +60,12 @@ def activityadd():
         db.session.commit()
         act = Activity.query.filter_by(activityDesc=form.activityDesc.data).all()
         activRef = act[-1].id
-        
+        print("=============================================================")
+        print(activRef)
+        print("=============================================================")
         print(current_user)
+        print("======================================================================")
+
         activitiesData = Activities(
             activity_ref=activRef,
             user_ref=current_user.id,
