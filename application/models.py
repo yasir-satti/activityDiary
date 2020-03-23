@@ -17,7 +17,7 @@ class Activity(db.Model):
 class Activities(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # activityDate = db.Column(db.Date, nullable=False)
-    user_id = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),, nullable=False)
     activity_id = db.Column(db.Integer, db.ForeignKey('activity.id'), nullable=False)
     ObjRating = db.Column(db.Integer, nullable=False)
     JoyRating = db.Column(db.Integer, nullable=False)
@@ -34,6 +34,7 @@ class Users(db.Model, UserMixin):
     last_name = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(500), nullable=False)
+    user_activities = db.relationship('Activities', backref='user_ref', lazy=True)
     
     def __repr__(self):
         return ''.join([

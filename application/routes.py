@@ -58,11 +58,14 @@ def activityadd():
         )
         db.session.add(activityData)
         db.session.commit()
-
+        act = Activity.query.filter_by(activityDesc=form.activityDesc.data).all()
+        activRef = act[-1].id
+        
         activitiesData = Activities(
-            activity_ref=current_user,
-            JoyRating=form.joyRating.data,
-            ObjRating=form.objRating.data
+            activity_ref=activRef,
+            user_ref=current_user,
+            ObjRating=form.objRating.data,
+            JoyRating=form.joyRating.data
         )  
         db.session.add(activitiesData)
         db.session.commit()        
