@@ -204,16 +204,6 @@ We have 2 tables:
 
 ![activity_display_wf](/images/wire_frame_004_add_display_activity_rating.jpg)
 
-
-<a name="appUImodify"></a>
-## Modify
-
-<a name="appUIdisplay"></a>
-## Display
-
-<a name="appUIdelete"></a>
-## Delete
-
 <a name="tests"></a>
 # Tests
 
