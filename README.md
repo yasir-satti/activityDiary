@@ -182,7 +182,7 @@ We have 2 tables:
 ![ERD](/images/ERD.jpg)
 
 <a name="appUI"></a>
-# Application design (wireframe)
+# Application wireframe
 
 ## Login
 
