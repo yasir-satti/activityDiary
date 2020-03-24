@@ -13,6 +13,8 @@ Rate your frequent activities on how much you enjoy them and whether you achieve
    * [Must Have](#mustH)
    * [Could Have](#couldH)
 
+[Risk assessment](#risk)
+
 [User Cases](#userC)
    * [Login](#login)
    * [Logout](#logout)
@@ -23,11 +25,7 @@ Rate your frequent activities on how much you enjoy them and whether you achieve
 
 [Entiry Relationship Diagram](#ERD)
 
-[Application UI design](#appUI)
-   * [Add](appUIadd)
-   * [Modify](appUImodify)
-   * [Display](appUIdisplay)
-   * [Delete](appUIdelete)
+[Application Wireframe](#appUI)
 
 [Deployment](#Deploy)
 
@@ -108,6 +106,35 @@ So that I quit my activities diary
 I want to add activity with more details like start time, end time, involved partners, colleagues ...etc
 So that I know what my updated activity list look like
 
+<a name="risk"></a>
+# Risk assessment
+
+## MVP development steps
+
+Ensure producing incremental working app with each sprint. Broken down app developmwnt to steps:
+
+1. App pages and navigation
+2. Creating and writing to database
+2. Reading from database and display
+3. updating/modifying data
+4. Delete data
+
+## Time constraint
+
+Limited time to produce the app require making progress in specific time frame for each development step. If progress is not made as planned then need to seek support to overcome issues and be able to deliver.
+
+## Infrastructure technology setup being stable and available
+
+Technology stack used relied mainly on cloud solutions. If it becomes not available or not reilable then need to prepare local development setup and backup
+
+## Programming knowledge and support to produce CRUD application
+
+1. Understanding software programming principles and their relations
+2. Understanding programming language and ability to translate app behaviour logic using programming language into working app
+
+
+
+
 <a name="useC"></a>
 # Use cases
 
@@ -155,10 +182,28 @@ We have 2 tables:
 ![ERD](/images/ERD.jpg)
 
 <a name="appUI"></a>
-# Application UI design
+# Application design (wireframe)
 
-<a name="appUIadd"></a>
-## Add
+## Login
+
+![login_wf](/images/wire_frame_002_login.jpg)
+
+## Landing page
+
+![landing_wf](/images/wire_frame_001_landing_page.jpg)
+
+## Create activity list
+
+![activity_list_wf](/images/wire_frame_005_add_create_activity_list_items.jpg)
+
+## Add activity item rating
+
+![activity_rating_wf](/images/wire_frame_003_add_activity_rating.jpg)
+
+## Add activity item rating
+
+![activity_display_wf](/images/wire_frame_004_add_display_activity_rating.jpg)
+
 
 <a name="appUImodify"></a>
 ## Modify
@@ -175,18 +220,25 @@ We have 2 tables:
 <a name="deploy"></a>
 # Deployment
 
+Jenkins was used during development to deploy working app
+
+1. After each app increment working code was pushed to git hub repository and Jenkins received a webhook trigger to deploy it
+
+2. Deployed app was working as systemd service where after succssful deployment just required app web page refresh to access new features
+
+
 <a name="techstack"></a>
 # Technology stack used
 
-Python
-Flask framework
-Linux VM on Google Cloud Platform (GCP)
-MySQL DB on Google Cloud Platform (GCP)
-Jenkins
-Github
-Linux
-Draw.io
-Wireframe draw
+1. Python
+2. Flask framework
+3. Linux VM on Google Cloud Platform (GCP)
+4. MySQL DB on Google Cloud Platform (GCP)
+5. Jenkins
+6. Github
+7. Linux
+8. Draw.io
+9. Wireframe draw
 
 
 
